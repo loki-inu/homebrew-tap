@@ -1,0 +1,26 @@
+name: test
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  formula:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+      - name: Tap this checkout
+        run: brew tap loki-inu/tap "$GITHUB_WORKSPACE"
+      - name: Audit
+        run: brew audit --strict --formula loki-inu/tap/relnote
+      - name: Install
+        run: brew install --formula loki-inu/tap/relnote
+      - name: Test
+        run: brew test loki-inu/tap/relnote
+      - name: Smoke
+        run: relnote --version
