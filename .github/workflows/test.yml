@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set up Homebrew
-        uses: Homebrew/actions/setup-homebrew@master
+        uses: Homebrew/actions/setup-homebrew@main
       - name: Tap this checkout
         run: brew tap loki-inu/tap "$GITHUB_WORKSPACE"
       - name: Audit
