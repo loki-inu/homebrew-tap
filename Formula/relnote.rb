@@ -1,8 +1,8 @@
 class Relnote < Formula
   desc "Turn a git range into GitHub release notes or a CHANGELOG.md section"
   homepage "https://loki-inu.github.io/relnote/"
-  url "https://github.com/loki-inu/relnote/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "af519b26357e12fa8821645c976b0e1f2708d596668cdeebde3034364c5ff18d"
+  url "https://github.com/loki-inu/relnote/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "fa5ecb58a98f42be20f34a550eeef519efd79f2bd66210efa13722d24d5f0ff5"
   license "MIT"
   head "https://github.com/loki-inu/relnote.git", branch: "main"
 
@@ -33,6 +33,7 @@ class Relnote < Formula
     assert_match "### Features", notes
     assert_match "add sync --dry-run", notes
     assert_match "### Fixes", notes
+    assert_equal "v0.2.0\n", shell_output("#{bin}/relnote --next-version")
 
     system bin/"relnote", "--changelog", "CHANGELOG.md", "--changelog-title", "v0.2.0",
            "--date", "2026-01-01", "--quiet"
