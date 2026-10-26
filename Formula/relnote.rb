@@ -1,8 +1,8 @@
 class Relnote < Formula
   desc "Turn a git range into GitHub release notes or a CHANGELOG.md section"
   homepage "https://loki-inu.github.io/relnote/"
-  url "https://github.com/loki-inu/relnote/archive/refs/tags/v0.3.3.tar.gz"
-  sha256 "a251c1da415864bf20bf5a6c94d1cb143651641a0ce32883d5add23c2927e925"
+  url "https://github.com/loki-inu/relnote/archive/refs/tags/v0.3.4.tar.gz"
+  sha256 "8195dc91fea50659aee6bd2136315229e1f5dfc136d9229722caaed598fb6316"
   license "MIT"
   head "https://github.com/loki-inu/relnote.git", branch: "main"
 
